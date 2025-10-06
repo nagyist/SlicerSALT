@@ -1,0 +1,13 @@
+{
+  "category": "Evolutionary S-rep Fitting",
+  "sampleName": "Download sample data",
+  "fileNames": [
+      "sample.vtp"
+  ],
+  "uris": [
+      "https://data.kitware.com/api/v1/file/hashsum/sha512/df567548ca8d489a110841a345cffc610afeedda5fe2af1fc47cf0072cb332a0289a9f57b4ef60648031164c8e6b1ca6be04b547ba04f5aea93c773c8002d2c7/download"
+  ],
+  "checksums": [
+      "SHA512:df567548ca8d489a110841a345cffc610afeedda5fe2af1fc47cf0072cb332a0289a9f57b4ef60648031164c8e6b1ca6be04b547ba04f5aea93c773c8002d2c7"
+  ]
+}

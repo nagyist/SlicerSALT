@@ -66,6 +66,7 @@ class HomeWidget(ScriptedLoadableModuleWidget):
           "SRepHypothesisTesting": "http://bit.ly/3Y94DLt",
           "CrownSegmentation": "https://slicersalt.readthedocs.io/en/latest/modules/DentalModelSeg.html",
           "SlicerDWD": "https://bit.ly/3CVx46d",
+          "EvolutionarySRep": "https://slicersalt.readthedocs.io/en/latest/modules/Srep.html#evolutionary-s-rep-fitting-module",
         }
 
         # The anchor associated with each link corresponds to the name of the module to select.
@@ -111,6 +112,7 @@ The drop-down Modules are ordered to follow the basic workflow for choosing and 
             'SVAInputData.json',
             'ShapeRegressionInputData.json',
             'SlicerDWDInputData.json',
+            'EvolutionarySrepData.json',
         ]:
             with open(self.resourcePath('SampleDataDescription/%s' % json_file), 'r') as json_data:
                 source_data = json.load(json_data)
@@ -148,7 +150,8 @@ The drop-down Modules are ordered to follow the basic workflow for choosing and 
             "ShapeVariationAnalyzer": "Population Analysis",
             "SRepCreator": "Skeletal Representation Creator",
             "SlicerDWD": "DWD Shape Analysis",
-            "SRepHypothesisTesting": "SRep Hypothesis Testing"
+            "SRepHypothesisTesting": "SRep Hypothesis Testing",
+            "EvolutionarySRep" : "Evolutionary S-rep Fitting"
         }
 
         self.sampleDataModuleTab = self.addSampleDataTab()
@@ -248,6 +251,11 @@ The drop-down Modules are ordered to follow the basic workflow for choosing and 
         elif currModule == slicer.moduleNames.SRepHypothesisTesting:
             slicer.modules.SRepHypothesisTestingWidget.ui.inputCSV.currentPath = os.path.join(destFolderPath, 'input.csv')
             slicer.modules.SRepHypothesisTestingWidget.ui.outputDirectory.directory = os.path.join(destFolderPath,'out')
+        elif currModule == slicer.moduleNames.EvolutionarySRep:
+            node = slicer.util.loadModel(os.path.join(destFolderPath, 'sample.vtp'))
+            slicer.modules.EvolutionarySRepWidget.ui.inputModel.setCurrentNode(node)
+            slicer.modules.EvolutionarySRepWidget.ui.outputPath.directory = os.path.join(destFolderPath,'out')
+
 
     @staticmethod
     def addSampleDataTab():
