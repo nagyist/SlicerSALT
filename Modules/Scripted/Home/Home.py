@@ -112,6 +112,7 @@ The drop-down Modules are ordered to follow the basic workflow for choosing and 
             'SVAInputData.json',
             'ShapeRegressionInputData.json',
             'SlicerDWDInputData.json',
+            'SRepHypothesisTestingData.json',
             'EvolutionarySrepData.json',
         ]:
             with open(self.resourcePath('SampleDataDescription/%s' % json_file), 'r') as json_data:
